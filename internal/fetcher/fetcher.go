@@ -10,8 +10,8 @@ import (
 
 	"github.com/mmcdole/gofeed"
 
-	"github.com/yourusername/rss-aggregator/internal/models"
-	"github.com/yourusername/rss-aggregator/internal/store"
+	"github.com/raffaelramalhorosa/rss-aggregator/internal/models"
+	"github.com/raffaelramalhorosa/rss-aggregator/internal/store"
 )
 
 // Fetcher periodically pulls every registered feed using concurrent workers

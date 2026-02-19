@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/yourusername/rss-aggregator/internal/models"
-	"github.com/yourusername/rss-aggregator/internal/store"
+	"github.com/raffaelramalhorosa/rss-aggregator/internal/models"
+	"github.com/raffaelramalhorosa/rss-aggregator/internal/store"
 )
 
 // Server holds dependencies for the HTTP handlers.
@@ -24,8 +24,18 @@ func New(s *store.Store, logger *slog.Logger) *Server {
 	return srv
 }
 
-// ServeHTTP makes Server satisfy the http.Handler interface.
+// ServeHTTP makes Server satisfy the http.Handler interface
+// and adds CORS headers so the frontend can call the API.
 func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+	if r.Method == http.MethodOptions {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
 	s.mux.ServeHTTP(w, r)
 }
 
@@ -39,6 +49,9 @@ func (s *Server) routes() {
 	s.mux.HandleFunc("DELETE /api/feeds/{id}", s.handleRemoveFeed)
 
 	s.mux.HandleFunc("GET /api/articles", s.handleListArticles)
+
+	// Serve the frontend from the static directory.
+	s.mux.Handle("GET /", http.FileServer(http.Dir("static")))
 }
 
 // ---------- Handlers ----------

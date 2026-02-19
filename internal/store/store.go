@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yourusername/rss-aggregator/internal/models"
+	"github.com/raffaelramalhorosa/rss-aggregator/internal/models"
 )
 
 // Store provides thread-safe, in-memory storage for feeds and articles.

@@ -10,9 +10,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/yourusername/rss-aggregator/internal/api"
-	"github.com/yourusername/rss-aggregator/internal/fetcher"
-	"github.com/yourusername/rss-aggregator/internal/store"
+	"github.com/raffaelramalhorosa/rss-aggregator/internal/api"
+	"github.com/raffaelramalhorosa/rss-aggregator/internal/fetcher"
+	"github.com/raffaelramalhorosa/rss-aggregator/internal/store"
 )
 
 func main() {

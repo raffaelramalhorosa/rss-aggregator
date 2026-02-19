@@ -15,6 +15,7 @@ FROM alpine:3.20
 RUN apk add --no-cache ca-certificates tzdata
 
 COPY --from=build /server /server
+COPY --from=build /app/static /static
 
 EXPOSE 8080
 

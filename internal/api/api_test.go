@@ -9,9 +9,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/yourusername/rss-aggregator/internal/api"
-	"github.com/yourusername/rss-aggregator/internal/models"
-	"github.com/yourusername/rss-aggregator/internal/store"
+	"github.com/raffaelramalhorosa/rss-aggregator/internal/api"
+	"github.com/raffaelramalhorosa/rss-aggregator/internal/models"
+	"github.com/raffaelramalhorosa/rss-aggregator/internal/store"
 )
 
 func setup() (*api.Server, *store.Store) {

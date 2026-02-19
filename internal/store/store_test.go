@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/yourusername/rss-aggregator/internal/models"
-	"github.com/yourusername/rss-aggregator/internal/store"
+	"github.com/raffaelramalhorosa/rss-aggregator/internal/models"
+	"github.com/raffaelramalhorosa/rss-aggregator/internal/store"
 )
 
 func TestAddAndListFeeds(t *testing.T) {
